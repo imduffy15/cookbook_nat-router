@@ -17,6 +17,12 @@
 
 package 'iptables'
 
+directory "/etc/sysctl.d" do
+  owner "root"
+  group "root"
+  mode 0644
+end
+
 template '/etc/sysctl.d/60-network-forwarding.conf' do
   source 'network-forwarding.conf.erb'
   mode 0644
