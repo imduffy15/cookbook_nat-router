@@ -35,7 +35,7 @@ execute 'iptables-restore' do
   action :nothing
 end
 
-template '/etc/network/iptables' do
+template '/etc/sysconfig/iptables' do
   source 'iptables.erb'
   mode 0644
   owner 'root'
