@@ -31,7 +31,7 @@ template '/etc/sysctl.d/60-network-forwarding.conf' do
 end
 
 execute 'iptables-restore' do
-  command '/sbin/iptables-restore < /etc/network/iptables'
+  command '/sbin/iptables-restore < /etc/sysconfig/iptables'
   action :nothing
 end
 
@@ -41,11 +41,4 @@ template '/etc/sysconfig/iptables' do
   owner 'root'
   group 'root'
   notifies :run, resources(:execute => 'iptables-restore')
-end
-
-template '/etc/network/if-pre-up.d/iptables-restore' do
-  source 'iptables-restore.erb'
-  mode 0755
-  owner 'root'
-  group 'root'
 end

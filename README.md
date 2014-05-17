@@ -6,7 +6,7 @@ Configures iptables to act as a NAT router between two interfaces
 Requirements
 ------------
 
-Should work on any Red Hat-family or Debian-family Linux distribution.
+Should work on any Red Hat-family Linux distribution.
 
 
 Usage
