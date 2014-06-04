@@ -1,3 +1,4 @@
+name		 "nat-router"
 maintainer       "Ian Duffy"
 maintainer_email "ian@ianduffy.ie"
 license          "Apache 2.0"
