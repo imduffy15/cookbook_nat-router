@@ -8,3 +8,5 @@ version          "0.0.1"
 %w{ redhat centos scientific amazon }.each do |os|
   supports os
 end
+
+recipe "nat-router", "Configures iptables as a nat firewall"
