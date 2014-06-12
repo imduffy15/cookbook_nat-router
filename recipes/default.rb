@@ -31,8 +31,8 @@ template '/etc/sysctl.d/60-network-forwarding.conf' do
 end
 
 execute 'reload sysctl' do
-  command '/sbin/sysctl --system'
-  action :nothing
+  command 'cat /etc/sysctl.d/*.conf /etc/sysctl.conf | sysctl -e -p -'
+  action :run
 end
 
 template '/etc/sysconfig/iptables' do
@@ -44,5 +44,5 @@ end
 
 execute 'iptables-restore' do
   command '/sbin/iptables-restore < /etc/sysconfig/iptables'
-  action :nothing
+  action :run
 end

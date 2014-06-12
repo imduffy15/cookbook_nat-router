@@ -2,11 +2,11 @@
 :INPUT ACCEPT
 :FORWARD ACCEPT
 :OUTPUT ACCEPT
--A FORWARD -i <%= @node['iptables']['lan'] %> -o <%= @node['iptables']['wan'] %> -j ACCEPT 
+-A FORWARD -i <%= @node['iptables']['lan'] %> -o <%= @node['iptables']['wan'] %> -j ACCEPT
 COMMIT
 *nat
 :PREROUTING ACCEPT
 :POSTROUTING ACCEPT
 :OUTPUT ACCEPT
--A POSTROUTING -o <%= @node['iptables']['wan'] %> -j MASQUERADE 
+-A POSTROUTING -o <%= @node['iptables']['wan'] %> -j MASQUERADE
 COMMIT
