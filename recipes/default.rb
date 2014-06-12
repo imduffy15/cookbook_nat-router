@@ -28,10 +28,11 @@ template '/etc/sysctl.d/60-network-forwarding.conf' do
   mode 0644
   owner 'root'
   group 'root'
+  notifies :run, resources(:execute => 'reload sysctl')
 end
 
-execute 'iptables-restore' do
-  command '/sbin/iptables-restore < /etc/sysconfig/iptables'
+execute 'reload sysctl' do
+  command '/sbin/sysctl --system'
   action :nothing
 end
 
@@ -41,4 +42,9 @@ template '/etc/sysconfig/iptables' do
   owner 'root'
   group 'root'
   notifies :run, resources(:execute => 'iptables-restore')
+end
+
+execute 'iptables-restore' do
+  command '/sbin/iptables-restore < /etc/sysconfig/iptables'
+  action :nothing
 end
