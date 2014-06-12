@@ -31,7 +31,7 @@ template '/etc/sysctl.d/60-network-forwarding.conf' do
 end
 
 execute 'reload sysctl' do
-  command 'cat /etc/sysctl.d/*.conf /etc/sysctl.conf | sysctl -e -p -'
+  command 'sysctl -p /etc/sysctl.d/60-network-forwarding.conf'
   action :run
 end
 
