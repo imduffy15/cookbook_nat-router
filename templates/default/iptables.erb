@@ -2,7 +2,9 @@
 :INPUT ACCEPT
 :FORWARD ACCEPT
 :OUTPUT ACCEPT
--A FORWARD -i <%= @node['iptables']['lan'] %> -o <%= @node['iptables']['wan'] %> -j ACCEPT
+<% @node['iptables']['lans'].each_with_index do |interface, index| %>
+-A FORWARD -i <%= interface %> -o <%= @node['iptables']['wan'] %> -j ACCEPT
+<% end %>
 COMMIT
 *nat
 :PREROUTING ACCEPT

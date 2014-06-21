@@ -5,4 +5,4 @@
 
 default['iptables']['enable_forwarding'] = '1'
 default['iptables']['wan'] = 'eth0'
-default['iptables']['lan'] = 'eth1'
+default['iptables']['lans'] = ['eth1']
